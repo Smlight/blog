@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>2017年上海金马五校赛 解题报告 | ——Light!</title><link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/blog/favicon.ico"><link rel="apple-touch-icon" href="/blog/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/blog/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/blog/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">2017年上海金马五校赛 解题报告</h1><a id="logo" href="/blog/.">——Light!</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/blog/."><i class="fa fa-home"> 首页</i></a><a href="/blog/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/blog/about/"><i class="fa fa-user"> 关于</i></a><a href="/blog/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">2017年上海金马五校赛 解题报告</h1><div class="post-meta">Jun 4, 2017<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>因为题目实在太多了，代码就不贴在博客里了。。。想看代码的童鞋可以去<a href="https://github.com/Smlight/ACMer/tree/master/2017/6%E6%9C%88/%E9%87%91%E9%A9%AC%E4%BA%94%E6%A0%A1%E8%B5%9B" target="_blank" rel="noopener">github</a>上看看。<br>题目似乎看不了了，我只能凭感觉复述一下题意了。。。</p>
+<h3 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h3><p>这个比赛有一个资格赛，但是跟蓝桥杯决赛冲突了所以不能参加，没想到老师帮我们申请了参赛资格，意外之喜。<br>热身刚结束实验室就断电了。。然后吃完饭背着电脑去了没空调的教室。。。</p>
+<h3 id="WarmUp"><a href="#WarmUp" class="headerlink" title="WarmUp"></a>WarmUp</h3><p>B题就不说了，反正一眼。A题首先肯定要把质数都筛出来，本来想在质数表里直接做的，但是发现写不出来。。。主要是因为对于 $a\leq x\leq b-m+1$ 都要成立，这个放到质数表里细节太多。。。所以想还不如直接交个很好写的二分答案，结果一发过了。。。很无语，要不是怕复杂度不太对这个也是看一眼就能写 = = 。。。C题比较难懂，它定义的线段能组成方形实际上跟线段本身的长度没有关系，读了好久才读懂，反正不会做也无所谓了 =。=</p>
+<h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>题意：D、E、E、S、T 做全排列并且按字典序排序，输出第$n$个$(n\leq 60)$。<br>题解：用<code>next_permutation</code>打个表就行啦 <del>虽然CE了两次</del></p>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>题意：给出一个 $n\times n$ 四连通的字符地图$(n\leq 50)$，只包含’*‘,’#’两种字符，从’*‘到’#’要消耗1点能量，从’#’到其他也要消耗1点能量。问从$(1,1)$到$(n,n)$至少要消耗多少能量。<br>题解：每个字符与相邻的字符建图，做一次单源最短路。可以用dijkstra+队列优化，时间复杂度$O(2n^2logn+4n^2)$。</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>题意：给出$n$个数的序列$(n\leq 20)$，每个数之前可以加正号或者负号，各个数也可以换位置，问最终能有多少不用的结果。<br>题解：显然换位置对于最后答案没有影响，只需要考虑是正是负就可以了。直接dfs，用<code>set</code>去重一下，时间复杂度$O(2^nnlog2)$。</p>
+<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>题意：有一个无穷的字符串序列${a,b,\dots,z,aa,\dots,az,ba,\dots }$，称不含a也不含bc的字符串为beautiful。给出一个串，问这个串之前有多少beautiful的字符串$(|S|\leq 100)$。<br>题目：很明显的数位dp，实际上跟hdu上的<a href="http://acm.hdu.edu.cn/showproblem.php?pid=2089" target="_blank" rel="noopener">不要62</a>差不多，不过这个是不能含a，相当于数字不能含0，那么就不能用前导0来补位了。。。刚开始也想怎么改一改模板，好像改了几十分钟都没搞定，最后就直接各种位数都算一遍就行了 =。= 单组时间复杂度$O(26n^2)$，不过根本到不了，多组就更无压力了。</p>
+<h3 id="E"><a href="#E" class="headerlink" title="E"></a>E</h3><p>题意：求最长回文子串的长度$(|S|&lt;=50)$。<br>题解：枚举中心和中心对暴力，时间复杂度$O(n^2)$。manacher的板子当然更无压力。</p>
+<h3 id="F"><a href="#F" class="headerlink" title="F"></a>F</h3><p>题意：有$n$条公交路线，问从S到T至少转车几次，如果多个方案输出时间最短的。<br>题解：做过类似的，写起来太麻烦没写，所以数据范围也没记清楚。仍然是建图dijkstra，中间好像要处理一下不太记得了 = = </p>
+<h3 id="G"><a href="#G" class="headerlink" title="G"></a>G</h3><p>题意：A和B在$n\times m$的网格图中移动一枚棋子，棋子的初始位置是$(1,1)$，每次只能向右或者向下移动，不能移动者失败。B后手认为游戏不太公平，增加规则，他可以在游戏开始前破坏<strong>至多</strong>一个格子（不能破坏左上角和右下角），游戏中两人不能移动到这个格子。在A最优策略的情况下，问B有没有必胜策略。<br>题解：首先考虑不破坏的情况，显然总共需要$n-1+m-1$步，如果这个数是偶数，那B必胜。再考虑需要破坏的，不妨令$n \lt m$，先填入SG值，$(n,m)$没有后继。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>可以发现，破坏中间的格子是没有用的，始终都有向右向下两个方向，要破坏就破坏底边的格子。当底边某个格子被破坏后，它左边的格子会没有后继变成0，所以破坏当前是1的格子也是没有用的，我们试着破坏$(3,4)$。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>可以发现，$(1,1)$的状态确实变了，变成了0，也就是先手必败。再仔细观察，$(1,4),(2,5)$也发生了改变，而且实际上右边还有多少列也没有关系，比如再多两列。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>相当于用X在左边规划了一个正方形，后手一定能把棋子移动到X的左边。那么样例的$(3,4)$为什么不行呢？因为要划一个$3\times 3$的正方形必须要破坏$(3,4)$，然而B不能破坏右下角，所以就不能必胜了。<br>综上，$n+m$是偶数或者$abs(n-m)$是大于1的奇数时有必胜策略。</p>
+<h3 id="H"><a href="#H" class="headerlink" title="H"></a>H</h3><p>题意：$n$个数，大小为$k$的滑动窗口从左往右滑动$(k\leq n\leq 10^7)$，求滑动过程中，最大值的平均数、平均数的最大值、标准差的最小值。<br>题解：求平均数和标准差只要维护一下区间和跟区间平方和就行了，求最大值的话参考<a href="http://poj.org/problem?id=2823" target="_blank" rel="noopener">poj2823</a>，可以用双端队列维护。计算过程可以用<code>long double</code>，<code>scanf</code>和<code>printf</code>要用<code>double</code>。。。</p>
+<h3 id="I"><a href="#I" class="headerlink" title="I"></a>I</h3><p>题意：环上有$0\dots n-1$这$n$个点$(n\leq 1000000)$，青蛙从$0$开始每一步跳$x$，问有多少$x$使得青蛙能到达所有的点，青蛙可以跳无穷多次。<br>题解：题意即 $ax-bn=c$ 对于 $c&gt;0$ 均有解。由裴蜀定理可以推知 $gcd(x,n)=1$。输出 $\varphi(n)$ 即可，预处理$O(N)$，回答$O(1)$。</p>
+<h3 id="J"><a href="#J" class="headerlink" title="J"></a>J</h3><p>题意：二维平面有$n$个点，以第一个点为起点、终点，每次走直线段去其他的点，直线段不能相交，问最后能围住多大的面积。<br>题解：刚读完的时候以为求个凸包就行了，后来发现规定了起点终点可能走不了凸包。。。然后就没做了，所以题目记得也不是很清楚。<br><img src="http://img.blog.csdn.net/20170604104149087" alt=""></p>
+<h3 id="K"><a href="#K" class="headerlink" title="K"></a>K</h3><p>题意：在$n\times m$的方格中从(1,1)开始顺时针地蛇形填数，输出结果$(n,m\leq 100)$。</p>
+<blockquote>
+<p>输入：<br>3 3<br>1 2 3 4 5 6 7 8 9<br>输出：<br>1 2 3<br>8 9 4<br>7 6 5</p>
+</blockquote>
+<p>题解：好像有个巧妙的方法，实在不行四种情况都判断一下就行，总之就是模拟。</p>
+<h3 id="L"><a href="#L" class="headerlink" title="L"></a>L</h3><p>没读</p>
+<h3 id="M"><a href="#M" class="headerlink" title="M"></a>M</h3><p>题意：给一个$n\times m$的矩阵D，再给一个kernel，即$3\times 3$的矩阵K，求D关于K的卷积$(n,m\leq 100)$。<br>题解：这题要是不给卷积的公式还真能难倒很多人。。。实际上就是按公式计算一下$$\large C_{i,j}=\sum_{a=0}^{min(n-i-1,2)}\sum_{b=0}^{min(m-j-1,2)}D_{i+a,j+b}\times K_{a,b}$$时间复杂度$O(3^2nm)$。</p>
+<h3 id="N"><a href="#N" class="headerlink" title="N"></a>N</h3><p>题意：$n$可以分解成$k$个正整数$(k\leq n\leq 1000)$，即$\sum_{i=1}^{k}a_i=n$，$a_i$递增，对于每种分解，它的值是这些数两两相乘的和，即$\sum_{i=1}^{k-1}\sum_{j=i+1}^{k}a_i*a_j$。求所有分解的和模$p$，保证$p$是一个奇质数。</p>
+<blockquote>
+<p>输入：<br>5 1000000007<br>输出：<br>44<br>输出解释：<br>5=1+1+1+1+1 值为10<br>5=1+1+1+2   值为9<br>5=1+2+2     值为8<br>5=1+1+3     值为7<br>5=2+3       值为6<br>5=1+4       值为4<br>5=5         值为0</p>
+</blockquote>
+<p>题解：$$记S=\sum_{i=1}^{k-1}\sum_{j=i+1}^{k}a_i*a_j$$ $$\because (\sum_{i=1}^{k}a_i)^2=\sum_{i=1}^{k}a_i^2+2S$$ $$\therefore S=\frac{1}{2}(n^2-\sum_{i=1}^{k}a_i^2)$$由于$S$的值很难维护，我们转而去求所有分解中的数的平方和。借用整数划分的记忆化搜索方法，<code>getspilit(n,m)</code>表示要分解$n$，且分解中出现的数都不超过$m$。分为 $m&gt;n$，$m==n$，$m&lt;n$ 三种情况，后两种再分为最终分解中包不包含m，这样不会重复。同时用<code>f[][]</code>记录不同分解数，<code>g[][]</code>记录所有分解的所有数字的平方和，用<code>f[n][n]</code>倍的$n^2$减去<code>g[n][n]</code>，最后再乘以2的逆元就可以了，时间复杂度$O(n^2)$。</p>
+<h3 id="O"><a href="#O" class="headerlink" title="O"></a>O</h3><p>题意：给出$2n$个数，两两一组，使得每组两个数的差的绝对值之和最小，求这个最小的和。<br>题解：由绝对值的性质，排序后两两分组即可。（可以用初中的数形结合全都标到数轴上证明）</p>
+<h3 id="After"><a href="#After" class="headerlink" title="After"></a>After</h3><p>比赛的时候查了不少资料，还复制粘贴了很多模板，结果竟然还是没打过现场赛的人。。。感觉很多知识点虽然知道但是不太熟练。。。继续学习。。。</p>
+</div><script type="text/javascript" src="/blog/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://Smlight.github.io/blog/2017/06/04/2017年上海金马五校赛解题报告/" data-id="cje3spfwg0010fouiv59rjsty" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACu0lEQVR42u3a22okMQwE0Pz/T+/CPi2EnqmS7Fzg9NPQzMWnA7ZS0sdHfP35d32+8//9p9dPn/r8/vz+4QsPDw9vtPSn62npOThhJ5jX7MdHgIeHh3eN9/owSBadbO7tw0rW88aCh4eH9628fGtODoB7JTseHh7ez+HlQUPyqeShJCU+Hh4e3nfx9mVx/p05JinEj2UteHh4eJNaN2qA/YTXF/t7eHh4eIuuer5Nvw5k8zW0YwRv1omHh4d3gfeVy4qCg1HD7M3K8fDw8C7wkn/188+21HxEIF/hm6waDw8P7xBvM0bQhsJtEHxsn8fDw8Nb8zZNqc2YVLutt7EIHh4e3j1e/sOz97QFdxJz1OceHh4e3lHe8HmUZXFemrfF+puV4OHh4V3gzTBtyDuLNtrj5E0+jYeHh3eIN8Nstu/8aGkLazw8PLyv4W2aW7Mm1qzR9Tr+GMa4eHh4eAveLBrYb99tmDv7A+Dh4eGd5c3Chc2IQNv+nw03rLITPDw8vDgfeL3Fz9jt/c1gVjFfhoeHh7fm7cOFlvQakBwYRXyMh4eHd4G3ae23LbH9eMGwDYaHh4d3jdcWuEnImwQT7aEyPELw8PDwLvM2xfFmHKEt9OvEBQ8PD2/Bm0W3s/v7IKONevHw8PBu8JLD4Gzrax/aJg/rMaXGw8PDO8SbZb3t4NSNXykCYjw8PLyjvP1Q1KbUTrb1Ns54nMnFw8PDO8prN/E2MmgL6HbcatjTw8PDwxu1u/JrH1jk8UceNzw+dDw8PLwLvPyaRbHtkbD5lZqEh4eHt+Dlm/Isim0bV/sRhMesBQ8PD+8ob9O4yh9NMlLQnmN4eHh4v5GXL/3G4EJUUuPh4eF9Ey8Pc5OSd9MYWw2q4uHh4R3i5c2nU43/9reux7h4eHh41xpg7ZfmsWwO3kcYeHh4eCPeX6HE5Cnh8IKCAAAAAElFTkSuQmCC">分享</a><div class="tags"><a href="/blog/tags/ACM/">ACM</a></div><div class="post-nav"><a class="pre" href="/blog/2017/07/02/hihocoder1529/">hihocoder 1529 不上升序列</a><a class="next" href="/blog/2017/06/04/Piece1/">Piece1</a></div><div id="container"></div><link rel="stylesheet" href="/blog/css/default.css?v=0.0.0"><script src="/blog/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  owner: 'Smlight',
+  repo: 'blog',
+  oauth: {
+    client_id: '7658f04ebf4c82b4eaf5',
+    client_secret: '9f2eab43096f966e8d6c53b81691ab45d3fe5009',
+  },
+})
+gitment.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/blog/tags/ACM/" style="font-size: 15px;">ACM</a> <a href="/blog/tags/Life/" style="font-size: 15px;">Life</a> <a href="/blog/tags/CTF/" style="font-size: 15px;">CTF</a> <a href="/blog/tags/Bug/" style="font-size: 15px;">Bug</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2018/02/25/hhutraining3/">HHUACM 寒假专题 动态规划</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2018/01/16/CSP超级合集/">CSP超级合集（更新中）</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/10/18/zimpha的bc出题录/">zimpha的bc出题录（部分）</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/09/25/2017urumqi_online/">2017ICPC乌鲁木齐网络赛 全题解</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/08/27/SAM/">后缀自动机·基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/08/23/2017multi9/">2017年多校联训9 部分题解</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/08/20/hdu6158/">hdu 6158 The Designer</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/08/20/hdu6156/">hdu 6156 Palindrome Function</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/08/18/2017multi8/">2017年多校联训8 部分题解</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2017/08/17/hihocoder1553/">hihocoder 1553 区间统计</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.lovelywen.com/" title="wenwenla" target="_blank">wenwenla</a><ul></ul><a href="http://www.calvinneo.com/" title="Calvin Neo" target="_blank">Calvin Neo</a><ul></ul><a href="http://www.cnblogs.com/forever97" title="Forever97" target="_blank">Forever97</a><ul></ul><a href="http://blog.csdn.net/miracle_ma" title="Mashaonan" target="_blank">Mashaonan</a><ul></ul><a href="http://liziyang.space/" title="lizi" target="_blank">lizi</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/blog/." rel="nofollow">——Light!.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/blog/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/blog/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/blog/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/blog/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/blog/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/blog/js/smartresize.js?v=0.0.0"></script></div></body></html>
