@@ -10,6 +10,20 @@
 <li><strong>想不到正解要快速把握部分分。</strong>从中学开始就喜欢比赛时先想正解，但是水平又不太行，经常会花大把时间做无用功。第4题大概改写了两三遍，如果一开始就想着先按60分的写，第2/5题分配到的时间就会再多一点。时间一多，分数就有上涨的可能，特别是第2题我还看着$k$的数据范围奇怪了一会儿，最后还是没发现那句话。。。</li>
 </ol>
 <p>这两点说起来容易，其实还是挺有难度的，看来要多加训练了。。。</p>
+<p>=========UPDATE=========<br>好像认证是四个小时，我一直当三个小时练的，应该不会时间太吃紧了。。。</p>
+<h3 id="201709-1-打酱油"><a href="#201709-1-打酱油" class="headerlink" title="201709-1 打酱油"></a>201709-1 打酱油</h3><p>sb-t。随便贪心一下。</p>
+<h3 id="201709-2-公共钥匙盒"><a href="#201709-2-公共钥匙盒" class="headerlink" title="201709-2 公共钥匙盒"></a>201709-2 公共钥匙盒</h3><p>小模拟，核心就是给所有事件排序。</p>
+<h3 id="201709-3-JSON查询"><a href="#201709-3-JSON查询" class="headerlink" title="201709-3 JSON查询"></a>201709-3 JSON查询</h3><p>中等模拟，除了基本的split以外，涉及到了括号匹配的知识，只有同一层的括号它们才有可能组成一个JSON对象。<br>具体来讲，可以一边dfs一边建树，但是传个字符串递归总是很慢的，我的习惯是传一下左右边界。建树的节点都是整数标识，再用额外的数组存一下key-value。然后查询的时候一层一层地查，每层有以下几种情况：</p>
+<ol>
+<li>子节点没有对应的串，一定返回“NOTEXIST”</li>
+<li>子节点有对应的串，查询串没有下一层，要么“STRING”要么“OBJECT”</li>
+<li>子节点有对应的串且是对象，查询串有下一层，继续递归</li>
+<li>子节点有对应的串且是字符串，查询串有下一层，返回“NOTEXIST”</li>
+</ol>
+<p><em>手动处理累手不累脑子</em></p>
+<h3 id="201709-4-通信网络"><a href="#201709-4-通信网络" class="headerlink" title="201709-4 通信网络"></a>201709-4 通信网络</h3><p>刚读完懵逼了，写了一大堆乱七八糟的。。。<br>其实就是原图和反图bfs一下，然后可达点取个并集，是全集就给答案加一。</p>
+<h3 id="201709-5-除法"><a href="#201709-5-除法" class="headerlink" title="201709-5 除法"></a>201709-5 除法</h3><p>50：暴力，每次缩小和求和都扫一遍<br>100：查到几个树状数组的做法，感觉复杂度完全不对，代码放了，正解待定。</p>
+<h3 id="201709-总结"><a href="#201709-总结" class="headerlink" title="201709 总结"></a>201709 总结</h3><p>前4题检查了一遍，第5题打了个暴力，然后啥都不想干就交了，毕竟不是真实考试。。。好在前4题都过了，第5题暴力也很成功。<br><strong>第4题大改，检查很有必要。</strong></p>
 <h3 id="201403-1-相反数"><a href="#201403-1-相反数" class="headerlink" title="201403-1 相反数"></a>201403-1 相反数</h3><p>不会重复，直接取绝对值找出现两次的。</p>
 <h3 id="201312-1-出现次数最多的数"><a href="#201312-1-出现次数最多的数" class="headerlink" title="201312-1 出现次数最多的数"></a>201312-1 出现次数最多的数</h3><p>sb-t。计数随便扫一下。</p>
 <h3 id="201312-2-ISBN号码"><a href="#201312-2-ISBN号码" class="headerlink" title="201312-2 ISBN号码"></a>201312-2 ISBN号码</h3><p>sb-t。随便模拟一下。</p>
@@ -17,7 +31,7 @@
 <h3 id="201312-4-有趣的数"><a href="#201312-4-有趣的数" class="headerlink" title="201312-4 有趣的数"></a>201312-4 有趣的数</h3><p>一眼看上去想搜索，但是仔细一想。。。是个数学题，稍微懵逼了一会儿，还是要慢慢来，列列式子。<br>因为0都在1之前，也就是说最后一个0在第一个1之前，那么它们可以看作一个整体。又因为每个数字至少出线一次，所以第一个一定是0。23同理。<br>设0和1的总位数是$x$，那么首先要在$n$位中选出$x$位，又因为整个串的第一位不能是0，所以应该是$n-1$位，即$C_{n-1}^{x}$。剩下的$n-x$位分给23。然后在这x位中，只要选一个位置断开，前面是0后面是1即可。枚举最末的0，除了不能在最后都可以（必须有1）。23同理。所以答案等于$C_{n-1}^{x} C_{x-1}^{1} C_{n-x-1}^{1}，2 \le x \le n-2$。$n$小于等于1000，阶乘打表或者组合数打表，随便搞搞。</p>
 <h3 id="201312-5-I’m-stuck"><a href="#201312-5-I’m-stuck" class="headerlink" title="201312-5 I’m stuck!"></a>201312-5 I’m stuck!</h3><p>70：我以为$50^4$肯定能过的。。。直接写了个先起点bfs再每个格子bfs的。。。TLE<br>100：可以直接连边在图上和反图上搜。但是不太想重写，所以加了一个反向搜的函数，注意反向的时候判断的是要到的那个格子的连通方向。</p>
 <h3 id="201312-总结"><a href="#201312-总结" class="headerlink" title="201312 总结"></a>201312 总结</h3><p>作为全系列第一场，非常简单，甚至不需要什么算法知识就能ak。</p>
-</div><script type="text/javascript" src="/blog/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://Smlight.github.io/blog/2018/01/16/CSP超级合集/" data-id="cjembdrt100124ouiqerh7m2u" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aQW7EMAgF0Nz/0um2VZX0AxlVdp5XlTLj8cuCguE44nVerO9Pf3/y99Orna+++/DCwMBYlnHerqvPVPe/IlV/9/IMGBgYL2BUfz6Je9XwmgdrDAwMjHtGHqCrf2NgYGA8y0hCbTXVw8DAwLhnTALo5J7vH2pxDAyMBRmTK7NP//2R/gYGBsZSjLO4qldsSaqXtwouT4WBgbE1Iw9wvfLy/tCTgIuBgYGRF5b338rTzWTnY7IdBgbGFow8jcsBvVZBtY2KgYHxHka1SdALi9UiOW+XYmBg7MroXYRNEso8QCcADAyMNzCqow+9C7hqF7L6FAMDY29G3nrstSpzZPUXf+yJgYHxAsZ98pdfxk0AvQYqBgbGGxh5i7G6RVKg5i2BB7JdDAyMxRnPlqnVt/XUoBgGBsaujEnZ2StNq22D6LQYGBhbM/KkLRmGmA+EjUpfDAyM1zB6IW+OyccpLp9iYGBszZincfcHylsO+ShYYfACAwNjC0aS9iWw3j55mvhH8wADA+MFjEmqNxkRe2yAAwMD48WMXpMyBx/xKpSvGBgYGzHO4vrEEXvFc7OzgYGBsSCjF+zKEb3Iy5PIMgwDA2NZRh5ke03KagKav5TCfw8MDIwtGL3AV30dyf6902JgYGD0hr0mgKhtiYGBgdEa/8qPm7Q/719ieWYEAwNjcUbeDMgPNG95fuS6DQMDY0HG/C6rGpp735qUvhgYGMsyvgCibEuprS12DQAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/blog/tags/ACM/">ACM</a></div><div class="post-nav"><a class="pre" href="/blog/2018/02/25/hhutraining3/">HHUACM 寒假专题 动态规划</a><a class="next" href="/blog/2017/12/08/2017qinhuangdao_play/">2017 CCPC 秦皇岛站游记</a></div><div id="container"></div><link rel="stylesheet" href="/blog/css/default.css?v=0.0.0"><script src="/blog/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+</div><script type="text/javascript" src="/blog/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://Smlight.github.io/blog/2018/01/16/CSP超级合集/" data-id="cjenyyxh0000p80uiifb76oze" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aQW7EMAgF0Nz/0um2VZX0AxlVdp5XlTLj8cuCguE44nVerO9Pf3/y99Orna+++/DCwMBYlnHerqvPVPe/IlV/9/IMGBgYL2BUfz6Je9XwmgdrDAwMjHtGHqCrf2NgYGA8y0hCbTXVw8DAwLhnTALo5J7vH2pxDAyMBRmTK7NP//2R/gYGBsZSjLO4qldsSaqXtwouT4WBgbE1Iw9wvfLy/tCTgIuBgYGRF5b338rTzWTnY7IdBgbGFow8jcsBvVZBtY2KgYHxHka1SdALi9UiOW+XYmBg7MroXYRNEso8QCcADAyMNzCqow+9C7hqF7L6FAMDY29G3nrstSpzZPUXf+yJgYHxAsZ98pdfxk0AvQYqBgbGGxh5i7G6RVKg5i2BB7JdDAyMxRnPlqnVt/XUoBgGBsaujEnZ2StNq22D6LQYGBhbM/KkLRmGmA+EjUpfDAyM1zB6IW+OyccpLp9iYGBszZincfcHylsO+ShYYfACAwNjC0aS9iWw3j55mvhH8wADA+MFjEmqNxkRe2yAAwMD48WMXpMyBx/xKpSvGBgYGzHO4vrEEXvFc7OzgYGBsSCjF+zKEb3Iy5PIMgwDA2NZRh5ke03KagKav5TCfw8MDIwtGL3AV30dyf6902JgYGD0hr0mgKhtiYGBgdEa/8qPm7Q/719ieWYEAwNjcUbeDMgPNG95fuS6DQMDY0HG/C6rGpp735qUvhgYGMsyvgCibEuprS12DQAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/blog/tags/ACM/">ACM</a></div><div class="post-nav"><a class="pre" href="/blog/2018/02/25/hhutraining3/">HHUACM 寒假专题 动态规划</a><a class="next" href="/blog/2017/12/08/2017qinhuangdao_play/">2017 CCPC 秦皇岛站游记</a></div><div id="container"></div><link rel="stylesheet" href="/blog/css/default.css?v=0.0.0"><script src="/blog/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
   owner: 'Smlight',
   repo: 'blog',
   oauth: {
