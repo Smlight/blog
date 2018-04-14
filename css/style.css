@@ -241,7 +241,7 @@ div {
       .post .post-content p a {
         color: #01579f;
         padding-bottom: 2px;
-        word-break: break-all; }
+        word-break: normal; }
         .post .post-content p a:hover {
           text-decoration: underline; }
     .post .post-content .caption {
@@ -274,7 +274,7 @@ div {
       .post .post-content ul a, .post .post-content ol a {
         color: #01579f;
         padding-bottom: 2px;
-        word-break: break-all; }
+        word-break: normal; }
         .post .post-content ul a:hover, .post .post-content ol a:hover {
           text-decoration: underline; }
   .post .tags {
