@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://Smlight.github.io/blog/2016/04/21/hhutraining1/</loc>
+    
+    <lastmod>2018-09-02T13:47:03.424Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://Smlight.github.io/blog/2018/09/02/hhutraining4/</loc>
+    
+    <lastmod>2018-09-02T13:46:29.541Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://Smlight.github.io/blog/2018/07/19/c-stack-frame/</loc>
+    
+    <lastmod>2018-09-02T13:20:34.930Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://Smlight.github.io/blog/2016/10/05/hdu5728/</loc>
+    
+    <lastmod>2018-08-15T03:04:56.088Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://Smlight.github.io/blog/2017/10/18/zimpha-bestcoder/</loc>
+    
+    <lastmod>2018-08-15T03:03:31.215Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://Smlight.github.io/blog/2016/01/15/poj2823/</loc>
     
     <lastmod>2018-04-14T13:18:35.968Z</lastmod>
@@ -16,63 +51,49 @@
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/04/21/2016gdut/</loc>
+    <loc>https://Smlight.github.io/blog/2016/04/21/2016-gdut/</loc>
     
     <lastmod>2018-04-14T13:01:29.760Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/07/13/gpltL2-012/</loc>
+    <loc>https://Smlight.github.io/blog/2016/07/13/gplt-L2-012/</loc>
     
     <lastmod>2018-04-14T13:01:25.976Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/04/21/hhutraining1/</loc>
-    
-    <lastmod>2018-04-14T13:01:18.706Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://Smlight.github.io/blog/2018/03/25/2018gdut/</loc>
+    <loc>https://Smlight.github.io/blog/2018/03/25/2018-gdut/</loc>
     
     <lastmod>2018-04-14T12:52:39.474Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/10/18/zimpha%E7%9A%84bc%E5%87%BA%E9%A2%98%E5%BD%95/</loc>
-    
-    <lastmod>2018-03-25T02:51:19.745Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://Smlight.github.io/blog/2017/12/08/2017qinhuangdao_play/</loc>
+    <loc>https://Smlight.github.io/blog/2017/12/08/2017-qinhuangdao-play/</loc>
     
     <lastmod>2018-03-25T02:50:54.601Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/10/24/2016shenyang_play/</loc>
+    <loc>https://Smlight.github.io/blog/2016/10/24/2016-shenyang-play/</loc>
     
     <lastmod>2018-03-25T02:50:46.801Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/10/18/2016hefei_play/</loc>
+    <loc>https://Smlight.github.io/blog/2016/10/18/2016-hefei-play/</loc>
     
     <lastmod>2018-03-25T02:50:32.921Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/03/22/2015lanqiao1/</loc>
+    <loc>https://Smlight.github.io/blog/2017/03/22/2015-lanqiao1/</loc>
     
     <lastmod>2018-03-25T02:49:13.043Z</lastmod>
     
@@ -86,21 +107,21 @@
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/03/22/2015lanqiao2/</loc>
+    <loc>https://Smlight.github.io/blog/2017/03/22/2015-lanqiao2/</loc>
     
     <lastmod>2018-03-18T13:21:05.810Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/03/13/2016lanqiao2/</loc>
+    <loc>https://Smlight.github.io/blog/2017/03/13/2016-lanqiao2/</loc>
     
     <lastmod>2018-03-18T13:20:41.698Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/03/13/2016lanqiao1/</loc>
+    <loc>https://Smlight.github.io/blog/2017/03/13/2016-lanqiao1/</loc>
     
     <lastmod>2018-03-18T13:20:37.530Z</lastmod>
     
@@ -114,7 +135,7 @@
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/07/20/EulerFunction/</loc>
+    <loc>https://Smlight.github.io/blog/2016/07/20/euler-function/</loc>
     
     <lastmod>2018-02-22T12:31:58.249Z</lastmod>
     
@@ -205,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/10/05/hdu5728/</loc>
-    
-    <lastmod>2018-02-22T10:33:51.816Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://Smlight.github.io/blog/2016/09/08/poj3690/</loc>
     
     <lastmod>2018-02-22T10:33:50.592Z</lastmod>
@@ -247,49 +261,49 @@
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/08/18/Crypto-%E7%89%B9%E6%AE%8A%E7%9A%84%E6%97%A5%E5%AD%90/</loc>
+    <loc>https://Smlight.github.io/blog/2016/08/18/crypto-special-day/</loc>
     
     <lastmod>2018-02-21T13:08:54.802Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/08/23/2017multi9/</loc>
+    <loc>https://Smlight.github.io/blog/2017/08/23/2017-multi9/</loc>
     
     <lastmod>2018-02-21T13:08:54.045Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/08/18/2017multi8/</loc>
+    <loc>https://Smlight.github.io/blog/2017/08/18/2017-multi8/</loc>
     
     <lastmod>2018-02-21T13:08:53.251Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/08/02/2017multi3/</loc>
+    <loc>https://Smlight.github.io/blog/2017/08/02/2017-multi3/</loc>
     
     <lastmod>2018-02-21T13:08:52.298Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/07/28/2017multi2/</loc>
+    <loc>https://Smlight.github.io/blog/2017/07/28/2017-multi2/</loc>
     
     <lastmod>2018-02-21T13:08:51.571Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/11/06/2016icpc_dalian/</loc>
+    <loc>https://Smlight.github.io/blog/2016/11/06/2016-icpc-dalian/</loc>
     
     <lastmod>2018-02-21T13:08:49.849Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/02/18/2016ccpc_hefei/</loc>
+    <loc>https://Smlight.github.io/blog/2017/02/18/2016-ccpc-hefei/</loc>
     
     <lastmod>2018-02-21T13:08:46.179Z</lastmod>
     
@@ -303,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2016/08/18/PPC-%E5%AD%97%E7%AC%A6%E7%BB%9F%E8%AE%A1/</loc>
+    <loc>https://Smlight.github.io/blog/2016/08/18/ppc-char-accounting/</loc>
     
     <lastmod>2018-02-21T13:08:42.290Z</lastmod>
     
@@ -338,7 +352,7 @@
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/03/14/gpltL3-006/</loc>
+    <loc>https://Smlight.github.io/blog/2017/03/14/gplt-L3-006/</loc>
     
     <lastmod>2018-02-12T03:09:19.338Z</lastmod>
     
@@ -387,14 +401,14 @@
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/09/25/2017urumqi_online/</loc>
+    <loc>https://Smlight.github.io/blog/2017/09/25/2017-urumqi-online/</loc>
     
     <lastmod>2018-02-09T13:19:33.699Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/02/23/2016cnfinal/</loc>
+    <loc>https://Smlight.github.io/blog/2017/02/23/2016-cnfinal/</loc>
     
     <lastmod>2018-02-09T13:02:21.895Z</lastmod>
     
@@ -429,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://Smlight.github.io/blog/2017/07/26/2017multi1/</loc>
+    <loc>https://Smlight.github.io/blog/2017/07/26/2017-multi1/</loc>
     
     <lastmod>2018-02-06T07:34:56.893Z</lastmod>
     
