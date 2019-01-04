@@ -237,7 +237,8 @@ div {
         display: inline-block;
         margin: 0 5px;
         padding: 0 5px;
-        background: #f7f8f8; }
+        background: #f7f8f8;
+        font-family: Menlo, Consolas, monospace !important; }
       .post .post-content p a {
         color: #01579f;
         padding-bottom: 2px;
@@ -270,7 +271,8 @@ div {
         display: inline-block;
         margin: 0 5px;
         padding: 0px 5px;
-        background: #f7f8f8; }
+        background: #f7f8f8;
+        font-family: Menlo, Consolas, monospace !important; }
       .post .post-content ul a, .post .post-content ol a {
         color: #01579f;
         padding-bottom: 2px;
@@ -1453,3 +1455,12 @@ em.search-keyword {
   color: #fff;
   background-color: #999999;
   text-shadow: 0; }
+
+.post-copyright {
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #FF1700;
+  background-color: #F9F9F9;
+  list-style: none; }
+  .post-copyright li {
+    margin: 8px 0; }
