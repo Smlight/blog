@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.smlight.xyz/"/>
+  <link href="https://www.smlight.xyz/"/>
   <updated>2019-04-19T08:29:44.061Z</updated>
-  <id>http://www.smlight.xyz/</id>
+  <id>https://www.smlight.xyz/</id>
   
   <author>
     <name>smlight</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>C语言函数调用栈（二）</title>
-    <link href="http://www.smlight.xyz/2019/04/19/c-stack-frame2/"/>
-    <id>http://www.smlight.xyz/2019/04/19/c-stack-frame2/</id>
+    <link href="https://www.smlight.xyz/2019/04/19/c-stack-frame2/"/>
+    <id>https://www.smlight.xyz/2019/04/19/c-stack-frame2/</id>
     <published>2019-04-19T08:01:19.000Z</published>
     <updated>2019-04-19T08:29:44.061Z</updated>
     
@@ -35,18 +35,18 @@
     </summary>
     
     
-      <category term="Basic" scheme="http://www.smlight.xyz/tags/Basic/"/>
+      <category term="Basic" scheme="https://www.smlight.xyz/tags/Basic/"/>
     
-      <category term="CTF" scheme="http://www.smlight.xyz/tags/CTF/"/>
+      <category term="CTF" scheme="https://www.smlight.xyz/tags/CTF/"/>
     
-      <category term="PWN" scheme="http://www.smlight.xyz/tags/PWN/"/>
+      <category term="PWN" scheme="https://www.smlight.xyz/tags/PWN/"/>
     
   </entry>
   
   <entry>
     <title>保研经历</title>
-    <link href="http://www.smlight.xyz/2018/10/12/block2/"/>
-    <id>http://www.smlight.xyz/2018/10/12/block2/</id>
+    <link href="https://www.smlight.xyz/2018/10/12/block2/"/>
+    <id>https://www.smlight.xyz/2018/10/12/block2/</id>
     <published>2018-10-12T12:06:00.000Z</published>
     <updated>2019-01-04T05:57:52.265Z</updated>
     
@@ -63,14 +63,14 @@
     </summary>
     
     
-      <category term="Life" scheme="http://www.smlight.xyz/tags/Life/"/>
+      <category term="Life" scheme="https://www.smlight.xyz/tags/Life/"/>
     
   </entry>
   
   <entry>
     <title>pwnable初步体验</title>
-    <link href="http://www.smlight.xyz/2018/09/24/pwnable-practice/"/>
-    <id>http://www.smlight.xyz/2018/09/24/pwnable-practice/</id>
+    <link href="https://www.smlight.xyz/2018/09/24/pwnable-practice/"/>
+    <id>https://www.smlight.xyz/2018/09/24/pwnable-practice/</id>
     <published>2018-09-24T02:43:03.000Z</published>
     <updated>2019-03-03T02:46:30.243Z</updated>
     
@@ -86,16 +86,16 @@
     </summary>
     
     
-      <category term="CTF" scheme="http://www.smlight.xyz/tags/CTF/"/>
+      <category term="CTF" scheme="https://www.smlight.xyz/tags/CTF/"/>
     
-      <category term="PWN" scheme="http://www.smlight.xyz/tags/PWN/"/>
+      <category term="PWN" scheme="https://www.smlight.xyz/tags/PWN/"/>
     
   </entry>
   
   <entry>
     <title>HHUACM 暑假专题 数学</title>
-    <link href="http://www.smlight.xyz/2018/09/02/hhutraining4/"/>
-    <id>http://www.smlight.xyz/2018/09/02/hhutraining4/</id>
+    <link href="https://www.smlight.xyz/2018/09/02/hhutraining4/"/>
+    <id>https://www.smlight.xyz/2018/09/02/hhutraining4/</id>
     <published>2018-09-02T13:45:45.000Z</published>
     <updated>2018-09-02T13:46:29.541Z</updated>
     
@@ -111,14 +111,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>C语言函数调用栈（一）</title>
-    <link href="http://www.smlight.xyz/2018/07/19/c-stack-frame/"/>
-    <id>http://www.smlight.xyz/2018/07/19/c-stack-frame/</id>
+    <link href="https://www.smlight.xyz/2018/07/19/c-stack-frame/"/>
+    <id>https://www.smlight.xyz/2018/07/19/c-stack-frame/</id>
     <published>2018-07-19T14:16:25.000Z</published>
     <updated>2019-04-19T08:24:18.848Z</updated>
     
@@ -134,18 +134,18 @@
     </summary>
     
     
-      <category term="Basic" scheme="http://www.smlight.xyz/tags/Basic/"/>
+      <category term="Basic" scheme="https://www.smlight.xyz/tags/Basic/"/>
     
-      <category term="CTF" scheme="http://www.smlight.xyz/tags/CTF/"/>
+      <category term="CTF" scheme="https://www.smlight.xyz/tags/CTF/"/>
     
-      <category term="PWN" scheme="http://www.smlight.xyz/tags/PWN/"/>
+      <category term="PWN" scheme="https://www.smlight.xyz/tags/PWN/"/>
     
   </entry>
   
   <entry>
     <title>2018广东工业大学校赛题解</title>
-    <link href="http://www.smlight.xyz/2018/03/25/2018-gdut/"/>
-    <id>http://www.smlight.xyz/2018/03/25/2018-gdut/</id>
+    <link href="https://www.smlight.xyz/2018/03/25/2018-gdut/"/>
+    <id>https://www.smlight.xyz/2018/03/25/2018-gdut/</id>
     <published>2018-03-25T01:48:46.000Z</published>
     <updated>2018-04-14T12:52:39.474Z</updated>
     
@@ -161,14 +161,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>HHUACM 寒假专题 动态规划</title>
-    <link href="http://www.smlight.xyz/2018/02/25/hhutraining3/"/>
-    <id>http://www.smlight.xyz/2018/02/25/hhutraining3/</id>
+    <link href="https://www.smlight.xyz/2018/02/25/hhutraining3/"/>
+    <id>https://www.smlight.xyz/2018/02/25/hhutraining3/</id>
     <published>2018-02-25T11:40:45.000Z</published>
     <updated>2018-02-26T05:58:25.785Z</updated>
     
@@ -184,14 +184,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>CSP超级合集</title>
-    <link href="http://www.smlight.xyz/2018/01/16/CSP%E8%B6%85%E7%BA%A7%E5%90%88%E9%9B%86/"/>
-    <id>http://www.smlight.xyz/2018/01/16/CSP超级合集/</id>
+    <link href="https://www.smlight.xyz/2018/01/16/CSP%E8%B6%85%E7%BA%A7%E5%90%88%E9%9B%86/"/>
+    <id>https://www.smlight.xyz/2018/01/16/CSP超级合集/</id>
     <published>2018-01-16T04:28:33.000Z</published>
     <updated>2018-03-19T09:15:03.425Z</updated>
     
@@ -207,14 +207,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>2017 CCPC 秦皇岛站游记</title>
-    <link href="http://www.smlight.xyz/2017/12/08/2017-qinhuangdao-play/"/>
-    <id>http://www.smlight.xyz/2017/12/08/2017-qinhuangdao-play/</id>
+    <link href="https://www.smlight.xyz/2017/12/08/2017-qinhuangdao-play/"/>
+    <id>https://www.smlight.xyz/2017/12/08/2017-qinhuangdao-play/</id>
     <published>2017-12-08T11:26:33.000Z</published>
     <updated>2018-03-25T02:50:54.601Z</updated>
     
@@ -230,16 +230,16 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
-      <category term="Life" scheme="http://www.smlight.xyz/tags/Life/"/>
+      <category term="Life" scheme="https://www.smlight.xyz/tags/Life/"/>
     
   </entry>
   
   <entry>
     <title>zimpha的bc出题录（部分）</title>
-    <link href="http://www.smlight.xyz/2017/10/18/zimpha-bestcoder/"/>
-    <id>http://www.smlight.xyz/2017/10/18/zimpha-bestcoder/</id>
+    <link href="https://www.smlight.xyz/2017/10/18/zimpha-bestcoder/"/>
+    <id>https://www.smlight.xyz/2017/10/18/zimpha-bestcoder/</id>
     <published>2017-10-18T13:46:08.000Z</published>
     <updated>2018-08-15T03:03:31.215Z</updated>
     
@@ -255,14 +255,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>2017ICPC乌鲁木齐网络赛 全题解</title>
-    <link href="http://www.smlight.xyz/2017/09/25/2017-urumqi-online/"/>
-    <id>http://www.smlight.xyz/2017/09/25/2017-urumqi-online/</id>
+    <link href="https://www.smlight.xyz/2017/09/25/2017-urumqi-online/"/>
+    <id>https://www.smlight.xyz/2017/09/25/2017-urumqi-online/</id>
     <published>2017-09-25T03:26:37.000Z</published>
     <updated>2018-02-09T13:19:33.699Z</updated>
     
@@ -278,14 +278,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>后缀自动机·基本概念</title>
-    <link href="http://www.smlight.xyz/2017/08/27/SAM/"/>
-    <id>http://www.smlight.xyz/2017/08/27/SAM/</id>
+    <link href="https://www.smlight.xyz/2017/08/27/SAM/"/>
+    <id>https://www.smlight.xyz/2017/08/27/SAM/</id>
     <published>2017-08-27T01:30:33.000Z</published>
     <updated>2018-02-22T10:41:24.046Z</updated>
     
@@ -301,14 +301,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>2017年多校联训9 部分题解</title>
-    <link href="http://www.smlight.xyz/2017/08/23/2017-multi9/"/>
-    <id>http://www.smlight.xyz/2017/08/23/2017-multi9/</id>
+    <link href="https://www.smlight.xyz/2017/08/23/2017-multi9/"/>
+    <id>https://www.smlight.xyz/2017/08/23/2017-multi9/</id>
     <published>2017-08-23T11:24:15.000Z</published>
     <updated>2018-02-21T13:08:54.045Z</updated>
     
@@ -324,14 +324,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>hdu 6158 The Designer</title>
-    <link href="http://www.smlight.xyz/2017/08/20/hdu6158/"/>
-    <id>http://www.smlight.xyz/2017/08/20/hdu6158/</id>
+    <link href="https://www.smlight.xyz/2017/08/20/hdu6158/"/>
+    <id>https://www.smlight.xyz/2017/08/20/hdu6158/</id>
     <published>2017-08-20T10:31:55.000Z</published>
     <updated>2018-02-12T03:08:09.699Z</updated>
     
@@ -348,14 +348,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>hdu 6156 Palindrome Function</title>
-    <link href="http://www.smlight.xyz/2017/08/20/hdu6156/"/>
-    <id>http://www.smlight.xyz/2017/08/20/hdu6156/</id>
+    <link href="https://www.smlight.xyz/2017/08/20/hdu6156/"/>
+    <id>https://www.smlight.xyz/2017/08/20/hdu6156/</id>
     <published>2017-08-20T09:16:54.000Z</published>
     <updated>2018-02-12T03:08:12.211Z</updated>
     
@@ -371,14 +371,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>2017年多校联训8 部分题解</title>
-    <link href="http://www.smlight.xyz/2017/08/18/2017-multi8/"/>
-    <id>http://www.smlight.xyz/2017/08/18/2017-multi8/</id>
+    <link href="https://www.smlight.xyz/2017/08/18/2017-multi8/"/>
+    <id>https://www.smlight.xyz/2017/08/18/2017-multi8/</id>
     <published>2017-08-18T00:45:08.000Z</published>
     <updated>2018-02-21T13:08:53.251Z</updated>
     
@@ -394,14 +394,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>hihocoder 1553 区间统计</title>
-    <link href="http://www.smlight.xyz/2017/08/17/hihocoder1553/"/>
-    <id>http://www.smlight.xyz/2017/08/17/hihocoder1553/</id>
+    <link href="https://www.smlight.xyz/2017/08/17/hihocoder1553/"/>
+    <id>https://www.smlight.xyz/2017/08/17/hihocoder1553/</id>
     <published>2017-08-17T02:00:21.000Z</published>
     <updated>2018-02-21T13:08:43.236Z</updated>
     
@@ -417,14 +417,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>hdu 6129 Just do it</title>
-    <link href="http://www.smlight.xyz/2017/08/17/hdu6129/"/>
-    <id>http://www.smlight.xyz/2017/08/17/hdu6129/</id>
+    <link href="https://www.smlight.xyz/2017/08/17/hdu6129/"/>
+    <id>https://www.smlight.xyz/2017/08/17/hdu6129/</id>
     <published>2017-08-17T00:41:10.000Z</published>
     <updated>2018-02-12T03:08:14.682Z</updated>
     
@@ -441,14 +441,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>hdu 5893 List wants to travel</title>
-    <link href="http://www.smlight.xyz/2017/08/09/hdu5893/"/>
-    <id>http://www.smlight.xyz/2017/08/09/hdu5893/</id>
+    <link href="https://www.smlight.xyz/2017/08/09/hdu5893/"/>
+    <id>https://www.smlight.xyz/2017/08/09/hdu5893/</id>
     <published>2017-08-09T09:26:09.000Z</published>
     <updated>2018-02-12T03:09:05.570Z</updated>
     
@@ -467,14 +467,14 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
   <entry>
     <title>hdu 5901 Count primes</title>
-    <link href="http://www.smlight.xyz/2017/08/05/hdu5901/"/>
-    <id>http://www.smlight.xyz/2017/08/05/hdu5901/</id>
+    <link href="https://www.smlight.xyz/2017/08/05/hdu5901/"/>
+    <id>https://www.smlight.xyz/2017/08/05/hdu5901/</id>
     <published>2017-08-05T07:46:09.000Z</published>
     <updated>2018-02-12T03:08:23.567Z</updated>
     
@@ -491,7 +491,7 @@
     </summary>
     
     
-      <category term="ACM" scheme="http://www.smlight.xyz/tags/ACM/"/>
+      <category term="ACM" scheme="https://www.smlight.xyz/tags/ACM/"/>
     
   </entry>
   
