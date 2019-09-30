@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Ananta: Cloud Scale Load Balancing 论文阅读报告 | ——Light!</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Ananta: Cloud Scale Load Balancing 论文阅读报告</h1><a id="logo" href="/.">——Light!</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Ananta: Cloud Scale Load Balancing 论文阅读报告</h1><div class="post-meta">Sep 30, 2019</div><a class="disqus-comment-count" href="/2019/09/30/report-1/#vcomment"><span class="valine-comment-count" data-xid="/2019/09/30/report-1/"></span><span> 条评论</span></a><div class="post-content"><p>本文要解决的问题是网络中的负载均衡问题，什么是负载均衡呢？负载均衡是云计算的基础组件，是网络流量的入口，是一个既经典又重要的问题。用户输入的流量通过负载均衡器按照某种负载均衡算法把流量均匀的分散到后端的多个服务器上，接收到请求的服务器可以独立的响应请求，达到负载分担的目的。从产品形态角度来说，可以分为硬件负载均衡和软件负载均衡。硬件负载均衡器常见的有F5、A10，它们的优缺点都比较明显，优点是功能强大，有专门的售后服务团队，性能比较好，缺点是缺少定制的灵活性，维护成本较高；现在的互联网公司更活跃的思路是通过软件负载均衡来实现，这样可以满足各种定制化需求，常见的软件负载均衡有Nginx、Haproxy。本文中实现的Ananta也属于一种软件负载均衡。</p>
+<p>本文的作者都是微软的员工，主要动机是在保证Web服务仍然高并发高可用的情况下尽可能地减小负载均衡的花费，为此他们设计并实现了Ananta。这是一种在商品硬件上运行并且支持横向扩展（scale-out）的layer-4（connection-level）负载均衡器，可以同时满足了多租户云计算环境中的性能、可靠性和操作要求。</p>
+<p><img src="/images/pasted-0.png" alt="图1 Ananta Data Plane Tiers"></p>
+<p>在具体介绍之前首先需要介绍本文中的一些基本概念：</p>
+<ul>
+<li>DIP：private Direct IP address，私有的直接IP地址，专用网内部的任何一台虚拟机或者本地机器都会被分配一个DIP，即仅在本专用网内使用的专用地址；</li>
+<li>VIP：public Virtual IP address，公有的虚拟IP地址，一般情况下一个服务会被分配一个VIP；</li>
+<li>服务：在本文中，“服务”和“租户”将作为可替换的概念；</li>
+<li>NAT：Network Address Translation，网络地址转换，当专用网内部需要提供对外服务时，外部地址发起主动连接，由路由器或者防火墙上的网关接收这个连接，然后将连接转换到内部，此过程是由带有公网IP的网关替代内部服务来接收外部的连接，然后在内部做地址转换，此转换称为NAT，主要用于内部服务对外发布；</li>
+<li>SNAT：Source Network Address Translation，源网络地址转换，内部地址要访问公网上的服务时（如web访问），内部地址会主动发起连接，由路由器或者防火墙上的网关对内部地址做地址转换，将内部地址的私有IP转换为公网的公有IP，网关的这个地址转换称为SNAT，主要用于内部共享IP访问外部；</li>
+<li>横向扩展：横向扩展是一种可以通过简单地添加更多类似容量的设备来处理更多带宽的模型；</li>
+<li>纵向扩展：纵向扩展是一种为了处理更多带宽需要更高容量的设备的模型。</li>
+</ul>
+<p>Ananta的设计原则有两条：</p>
+<ol>
+<li>横向扩展网络内（in-network）处理：传统的NAT和负载平衡算法需要了解所有活动的（active）流，因此同一VIP的所有流量都必须通过相同的负载平衡器，这迫使负载均衡器只能进行纵向扩展。而路由器遵循横向扩展模型，这是因为它们不维护任何需要跨路由器同步的每流（per-flow）状态。Ananta的设计将负载均衡所需的网络内功能简化，使得多个网络元素可以同时处理同一VIP的数据包，而无需每流状态的同步。</li>
+<li>将工作负载卸载（offload）到端系统：端系统中的管理程序已经可以进行高度可扩展的网络处理。Ananta利用此分布式可扩展平台，将重要的数据平面和控制平面功能卸载到终端系统中的管理程序。</li>
+</ol>
+<p>Ananta是一个松散耦合的分布式系统，包含三个主要组件：Ananta管理员（Ananta Manager，AM)，多路复用器（Multiplexer，Mux)和主机代理（Host Agent，HA)，如图2所示。</p>
+<p><img src="/images/pasted-1.png" alt="图2 The Ananta Architecture"></p>
+<p>AM实现了Ananta的控制平面。他提供配置VIP的API，他会根据VIP的配置来配置HA和Mux池，并且监视DIP运行状况的任何更改。AM还负责跟踪Mux和主机的健康状况，并采取适当的行动。</p>
+<p>Mux处理所有传入流量。他负责从路由器接收所有已配置的VIP的流量，并将其转发到适当的DIP。</p>
+<p>HA是Ananta区别于其他架构的一个组件。HA存在于每台物理计算机的主机分区上，他是跨layer-2域实现DSR和SNAT的关键。此外，HA还通过实现Fastpath和NAT来实现数据平面扩展。</p>
+<p>下面对整体的数据包流进行介绍。</p>
+<p>（1）向内的连接<br><img src="/images/pasted-2.png" alt="图3 Load Balancing for Inbound Connections"></p>
+<p>图3展示了发向VIP的数据包是如何被负载均衡并传递到某个VM的DIP的。特点在于第8步时HA不需要向Mux发送数据包，而是直接向路由器发送，称为Direct Server Return，DSR，这是一个很巧妙的设计。</p>
+<p>（2）向外的连接<br><img src="/images/pasted-3.png" alt="图4 Handling Outbound SNAT Connections"></p>
+<p>图4展示了向外发送的数据包是如何被处理的。特点在于HA仍然不需要向Mux发送数据包，即使数据包需要被SNAT，它也只需要与AM进行通信，由AM负责通知Mux，这是一个更巧妙的设计。</p>
+<p>（3）Fastpath<br><img src="/images/pasted-4.png" alt="图5 Fastpath Control and Data Packets"></p>
+<p>图5展示了一个从DIP1到VIP2的连接（数据包的流动有一定的简化）。在第一轮发包之后（从第8步开始），数据包的所有流动会在VM1和VM2之间直接进行而不需要经过Mux，称为Fastpath。</p>
+<p>本文的创新点其实就是上文的两条设计原则，不维护每流状态使得便利的横向扩展成为可能，通过巧妙地设计AM、Mux、HA三类组件并对他们进行配置，使得多路复用器Mux的压力大大减轻，将工作负载卸载到了端系统。最终达到在大流量下各个设备仍然能正常工作，并且负载均衡产生的费用相比于硬件负载均衡降低了很多。</p>
+<p>我认为下一步研究工作的可能有以下方面：</p>
+<ol>
+<li>建立或者说维护Fastpath的过程是否可以不要第一轮发包，因为第一轮发包的过程实际上并没有那么简单，很有可能是经过了很多个Mux和路由器之后才能到达；</li>
+<li>一个物理机器就要配一个HA在其他场景下是否合理，比如某个企业希望租用的是若干台物理机器而不是虚拟机，那么会不会使用更少的类似HA的组件可以达到更大的收益，因为HA会占用物理机器的一部分资源从而可能对售价产生影响？</li>
+</ol>
+</div><div class="tags"><a href="/tags/论文阅读报告/">论文阅读报告</a><a href="/tags/网络/">网络</a><a href="/tags/分布式系统/">分布式系统</a></div><div class="post-nav"><a class="next" href="/2019/04/19/c-stack-frame2/">C语言函数调用栈（二）</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'DR7gqi2MfAfkdkSM54fFJdfW-gzGzoHsz',
+  appKey:'QAk97tnQjom2O1HRj9MQjH4l',
+  placeholder:'Just so so',
+  avatar:'retro',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/PWN/" style="font-size: 15px;">PWN</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/Life/" style="font-size: 15px;">Life</a> <a href="/tags/Bug/" style="font-size: 15px;">Bug</a> <a href="/tags/Basic/" style="font-size: 15px;">Basic</a> <a href="/tags/CTF/" style="font-size: 15px;">CTF</a> <a href="/tags/ACM/" style="font-size: 15px;">ACM</a> <a href="/tags/Crypto/" style="font-size: 15px;">Crypto</a> <a href="/tags/论文阅读报告/" style="font-size: 15px;">论文阅读报告</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/分布式系统/" style="font-size: 15px;">分布式系统</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/report-1/">Ananta: Cloud Scale Load Balancing 论文阅读报告</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/19/c-stack-frame2/">C语言函数调用栈（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/24/pwnable-practice/">pwnable初步体验</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/hhutraining4/">HHUACM 暑假专题 数学</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/c-stack-frame/">C语言函数调用栈（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/25/2018-gdut/">2018广东工业大学校赛题解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/25/hhutraining3/">HHUACM 寒假专题 动态规划</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/16/CSP超级合集/">CSP超级合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/2017-qinhuangdao-play/">2017 CCPC 秦皇岛站游记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/zimpha-bestcoder/">zimpha的bc出题录（部分）</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.lovelywen.com/" title="wenwenla" target="_blank">wenwenla</a><ul></ul><a href="http://blog.csdn.net/miracle_ma" title="Mashaonan" target="_blank">Mashaonan</a><ul></ul><a href="http://liziyang.space/" title="lizi" target="_blank">lizi</a><ul></ul><a href="http://www.calvinneo.com/" title="Calvin Neo" target="_blank">Calvin Neo</a><ul></ul><a href="http://www.cnblogs.com/forever97" title="Forever97" target="_blank">Forever97</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">——Light!.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
