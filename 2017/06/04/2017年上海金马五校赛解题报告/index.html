@@ -11,127 +11,121 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
-<th style="text-align:center">6</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>可以发现，破坏中间的格子是没有用的，始终都有向右向下两个方向，要破坏就破坏底边的格子。当底边某个格子被破坏后，它左边的格子会没有后继变成0，所以破坏当前是1的格子也是没有用的，我们试着破坏$(3,4)$。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
-<th style="text-align:center">6</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">X</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">X</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>可以发现，$(1,1)$的状态确实变了，变成了0，也就是先手必败。再仔细观察，$(1,4),(2,5)$也发生了改变，而且实际上右边还有多少列也没有关系，比如再多两列。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
-<th style="text-align:center">6</th>
-<th style="text-align:center">7</th>
-<th style="text-align:center">8</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">X</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">X</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>相当于用X在左边规划了一个正方形，后手一定能把棋子移动到X的左边。那么样例的$(3,4)$为什么不行呢？因为要划一个$3\times 3$的正方形必须要破坏$(3,4)$，然而B不能破坏右下角，所以就不能必胜了。<br>综上，$n+m$是偶数或者$abs(n-m)$是大于1的奇数时有必胜策略。</p>
 <h3 id="H"><a href="#H" class="headerlink" title="H"></a>H</h3><p>题意：$n$个数，大小为$k$的滑动窗口从左往右滑动$(k\leq n\leq 10^7)$，求滑动过程中，最大值的平均数、平均数的最大值、标准差的最小值。<br>题解：求平均数和标准差只要维护一下区间和跟区间平方和就行了，求最大值的话参考<a href="http://poj.org/problem?id=2823" target="_blank" rel="noopener">poj2823</a>，可以用双端队列维护。计算过程可以用<code>long double</code>，<code>scanf</code>和<code>printf</code>要用<code>double</code>。。。</p>
 <h3 id="I"><a href="#I" class="headerlink" title="I"></a>I</h3><p>题意：环上有$0\dots n-1$这$n$个点$(n\leq 1000000)$，青蛙从$0$开始每一步跳$x$，问有多少$x$使得青蛙能到达所有的点，青蛙可以跳无穷多次。<br>题解：题意即 $ax-bn=c$ 对于 $c&gt;0$ 均有解。由裴蜀定理可以推知 $gcd(x,n)=1$。输出 $\varphi(n)$ 即可，预处理$O(N)$，回答$O(1)$。</p>
@@ -167,7 +161,7 @@ window.valine = new Valine({
   avatar:'retro',
   guest_info:guest_info,
   pageSize:'10'
-})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/PWN/" style="font-size: 15px;">PWN</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/Life/" style="font-size: 15px;">Life</a> <a href="/tags/Bug/" style="font-size: 15px;">Bug</a> <a href="/tags/Basic/" style="font-size: 15px;">Basic</a> <a href="/tags/CTF/" style="font-size: 15px;">CTF</a> <a href="/tags/ACM/" style="font-size: 15px;">ACM</a> <a href="/tags/Crypto/" style="font-size: 15px;">Crypto</a> <a href="/tags/论文阅读报告/" style="font-size: 15px;">论文阅读报告</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/分布式系统/" style="font-size: 15px;">分布式系统</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/report-1/">Ananta: Cloud Scale Load Balancing 论文阅读报告</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/19/c-stack-frame2/">C语言函数调用栈（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/24/pwnable-practice/">pwnable初步体验</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/hhutraining4/">HHUACM 暑假专题 数学</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/c-stack-frame/">C语言函数调用栈（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/25/2018-gdut/">2018广东工业大学校赛题解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/25/hhutraining3/">HHUACM 寒假专题 动态规划</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/16/CSP超级合集/">CSP超级合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/2017-qinhuangdao-play/">2017 CCPC 秦皇岛站游记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/zimpha-bestcoder/">zimpha的bc出题录（部分）</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.lovelywen.com/" title="wenwenla" target="_blank">wenwenla</a><ul></ul><a href="http://blog.csdn.net/miracle_ma" title="Mashaonan" target="_blank">Mashaonan</a><ul></ul><a href="http://liziyang.space/" title="lizi" target="_blank">lizi</a><ul></ul><a href="http://www.calvinneo.com/" title="Calvin Neo" target="_blank">Calvin Neo</a><ul></ul><a href="http://www.cnblogs.com/forever97" title="Forever97" target="_blank">Forever97</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">——Light!.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Crypto/" style="font-size: 15px;">Crypto</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/Life/" style="font-size: 15px;">Life</a> <a href="/tags/Bug/" style="font-size: 15px;">Bug</a> <a href="/tags/CTF/" style="font-size: 15px;">CTF</a> <a href="/tags/ACM/" style="font-size: 15px;">ACM</a> <a href="/tags/论文阅读报告/" style="font-size: 15px;">论文阅读报告</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/分布式系统/" style="font-size: 15px;">分布式系统</a> <a href="/tags/PWN/" style="font-size: 15px;">PWN</a> <a href="/tags/Basic/" style="font-size: 15px;">Basic</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/12/05/piece2/">Piece2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/report-1/">Ananta: Cloud Scale Load Balancing 论文阅读报告</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/19/c-stack-frame2/">C语言函数调用栈（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/24/pwnable-practice/">pwnable初步体验</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/hhutraining4/">HHUACM 暑假专题 数学</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/c-stack-frame/">C语言函数调用栈（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/25/2018-gdut/">2018广东工业大学校赛题解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/25/hhutraining3/">HHUACM 寒假专题 动态规划</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/16/CSP超级合集/">CSP超级合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/2017-qinhuangdao-play/">2017 CCPC 秦皇岛站游记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.lovelywen.com/" title="wenwenla" target="_blank">wenwenla</a><ul></ul><a href="http://blog.csdn.net/miracle_ma" title="Mashaonan" target="_blank">Mashaonan</a><ul></ul><a href="http://liziyang.space/" title="lizi" target="_blank">lizi</a><ul></ul><a href="http://www.calvinneo.com/" title="Calvin Neo" target="_blank">Calvin Neo</a><ul></ul><a href="http://www.cnblogs.com/forever97" title="Forever97" target="_blank">Forever97</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">——Light!.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.2/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
 if (search_path.length == 0) {
    search_path = 'search.xml';
 }
