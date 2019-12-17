@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.smlight.xyz/2019/12/17/oblivious-transfer/</loc>
+    
+    <lastmod>2019-12-17T03:28:12.005Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.smlight.xyz/2018/07/19/c-stack-frame/</loc>
+    
+    <lastmod>2019-12-17T03:02:20.522Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.smlight.xyz/2019/12/05/piece2/</loc>
     
-    <lastmod>2019-12-05T11:44:24.200Z</lastmod>
+    <lastmod>2019-12-17T02:56:11.291Z</lastmod>
     
   </url>
   
@@ -19,13 +33,6 @@
     <loc>https://www.smlight.xyz/2019/04/19/c-stack-frame2/</loc>
     
     <lastmod>2019-04-19T08:29:44.061Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.smlight.xyz/2018/07/19/c-stack-frame/</loc>
-    
-    <lastmod>2019-04-19T08:24:18.848Z</lastmod>
     
   </url>
   
