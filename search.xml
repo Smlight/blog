@@ -1084,25 +1084,6 @@
     
     
     <entry>
-      <title>PPC-字符统计</title>
-      <link href="/2016/08/18/ppc-char-accounting/"/>
-      <url>/2016/08/18/ppc-char-accounting/</url>
-      
-        <content type="html"><![CDATA[<h3 id="字符统计"><a href="#字符统计" class="headerlink" title="字符统计"></a><a href="http://ctf.idf.cn/index.php?g=game&m=article&a=index&id=37" target="_blank" rel="noopener">字符统计</a></h3><p>题意也没什么好说的，主要是找了找 python 好用的 http 请求库，发现 requests 真的是很好用啊。。。还有就是一定要<strong>看清楚表单</strong>。。。</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line">    </span><br><span class="line">cookie = &#123;<span class="string">'Cookie'</span> : <span class="string">'wctf_think_language=zh-CN;PHPSESSID=ltbxxxxxxxxxxxxxxxxxxxxfl6'</span>&#125;</span><br><span class="line">r = requests.<span class="keyword">get</span>("http://ctf.idf.cn/game/pro/37/", cookies = cookie)</span><br><span class="line">    </span><br><span class="line"><span class="type">text</span> = re.<span class="keyword">search</span>(r<span class="string">'&lt;hr /&gt;\s(.*)\s&lt;hr /&gt;'</span>, r.text, re.S).<span class="keyword">group</span>(<span class="number">1</span>)</span><br><span class="line">res = ""</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'w'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'o'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'l'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'d'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'y'</span>))</span><br><span class="line">print(res)</span><br><span class="line">    </span><br><span class="line">payload = &#123;<span class="string">'anwser'</span>:res&#125;</span><br><span class="line">r = requests.post("http://ctf.idf.cn/game/pro/37/", cookies = cookie, data = payload)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Crypto-特殊的日子</title>
       <link href="/2016/08/18/crypto-special-day/"/>
       <url>/2016/08/18/crypto-special-day/</url>
@@ -1116,6 +1097,25 @@
             <tag> CTF </tag>
             
             <tag> Crypto </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>PPC-字符统计</title>
+      <link href="/2016/08/18/ppc-char-accounting/"/>
+      <url>/2016/08/18/ppc-char-accounting/</url>
+      
+        <content type="html"><![CDATA[<h3 id="字符统计"><a href="#字符统计" class="headerlink" title="字符统计"></a><a href="http://ctf.idf.cn/index.php?g=game&m=article&a=index&id=37" target="_blank" rel="noopener">字符统计</a></h3><p>题意也没什么好说的，主要是找了找 python 好用的 http 请求库，发现 requests 真的是很好用啊。。。还有就是一定要<strong>看清楚表单</strong>。。。</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line">    </span><br><span class="line">cookie = &#123;<span class="string">'Cookie'</span> : <span class="string">'wctf_think_language=zh-CN;PHPSESSID=ltbxxxxxxxxxxxxxxxxxxxxfl6'</span>&#125;</span><br><span class="line">r = requests.<span class="keyword">get</span>("http://ctf.idf.cn/game/pro/37/", cookies = cookie)</span><br><span class="line">    </span><br><span class="line"><span class="type">text</span> = re.<span class="keyword">search</span>(r<span class="string">'&lt;hr /&gt;\s(.*)\s&lt;hr /&gt;'</span>, r.text, re.S).<span class="keyword">group</span>(<span class="number">1</span>)</span><br><span class="line">res = ""</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'w'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'o'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'l'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'d'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'y'</span>))</span><br><span class="line">print(res)</span><br><span class="line">    </span><br><span class="line">payload = &#123;<span class="string">'anwser'</span>:res&#125;</span><br><span class="line">r = requests.post("http://ctf.idf.cn/game/pro/37/", cookies = cookie, data = payload)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
             
         </tags>
       
