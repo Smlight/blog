@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.smlight.top/"/>
-  <updated>2019-12-28T07:38:33.159Z</updated>
+  <updated>2019-12-28T10:21:53.084Z</updated>
   <id>https://www.smlight.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>八种放球问题</title>
+    <link href="https://www.smlight.top/2019/12/28/ball-box-problem/"/>
+    <id>https://www.smlight.top/2019/12/28/ball-box-problem/</id>
+    <published>2019-12-28T10:21:00.000Z</published>
+    <updated>2019-12-28T10:21:53.084Z</updated>
+    
+    <content type="html"><![CDATA[<p>这两天复习组合数学，仔细品了品八种放球问题，感觉还是挺有意思的。<br>放球问题的基本表述是：将$n$个球放入$m$个盒子中（每个球都必须放到某个盒子里），有多少种方案？<br>由于有$3$个方面的条件，所以总共有$2^3=8$种，按熟悉程度分别介绍吧。</p><h3 id="1-将-n-个无区别的球放入-m-个有区别的盒子中，不允许空盒"><a href="#1-将-n-个无区别的球放入-m-个有区别的盒子中，不允许空盒" class="headerlink" title="1. 将$n$个无区别的球放入$m$个有区别的盒子中，不允许空盒"></a>1. 将$n$个无区别的球放入$m$个有区别的盒子中，不允许空盒</h3><p>使用经典的插空法，把$m-1$个板插入$n-1$个空中，自然划分出$m$个区，对应$m$个有区别的盒子，如图所示。<br><img src="/images/pasted-5.png" alt="插空法示意图"><br>方案数$=C_{n-1}^{m-1}$。<br>该问题等价于求$\sum_{i=1}^{m}{x_{i}}=n$的正整数解的个数。</p><h3 id="2-将-n-个无区别的球放入-m-个有区别的盒子中，允许有空盒"><a href="#2-将-n-个无区别的球放入-m-个有区别的盒子中，允许有空盒" class="headerlink" title="2. 将$n$个无区别的球放入$m$个有区别的盒子中，允许有空盒"></a>2. 将$n$个无区别的球放入$m$个有区别的盒子中，允许有空盒</h3><p>使用经典的隔板法，把$m-1$个板与$n$个球放在一起。“允许有空盒”意味着板和板可以紧邻地放在一起，这时候就要换一种思维方式，也就是从位置的角度来考虑，在$n+m-1$个位置中选$m-1$个放隔板，剩下的$n$个放球。<br><img src="/images/pasted-6.png" alt="隔板法示意图"><br>方案数$=C_{n+m-1}^{m-1}$。<br>该问题等价于求$\sum_{i=1}^{m}{x_{i}}=n$的非负整数解的个数，通过换元法可以转化为问题1。</p><h3 id="3-将-n-个有区别的球放入-m-个有区别的盒子中，允许有空盒"><a href="#3-将-n-个有区别的球放入-m-个有区别的盒子中，允许有空盒" class="headerlink" title="3. 将$n$个有区别的球放入$m$个有区别的盒子中，允许有空盒"></a>3. 将$n$个有区别的球放入$m$个有区别的盒子中，允许有空盒</h3><p>第1个球有$m$种选择，第2个球也有$m$种选择，第3个……。<br>方案数$=m \times m \times \cdots \times m = m^{n}$。</p><h3 id="4-将-n-个有区别的球放入-m-个无区别的盒子中，不允许空盒"><a href="#4-将-n-个有区别的球放入-m-个无区别的盒子中，不允许空盒" class="headerlink" title="4. 将$n$个有区别的球放入$m$个无区别的盒子中，不允许空盒"></a>4. 将$n$个有区别的球放入$m$个无区别的盒子中，不允许空盒</h3><p>这是第二类斯特林数的定义。<br>方案数$=S(n,m)$，递推式为$S(n,m)= S(n-1,m-1) + S(n-1,m) \times m$，包含了两种情况，</p><ol><li>第$n$个球单独放一个盒子，也就是之前的$n-1$个球放入了$m-1$个盒子；</li><li>第$n$个球放入已经存在的盒子，由于不能有空盒，此时$m$个盒子内部的情况肯定是不一样的，所以可以直接乘以$m$。</li></ol><h3 id="5-将-n-个有区别的球放入-m-个无区别的盒子中，允许有空盒"><a href="#5-将-n-个有区别的球放入-m-个无区别的盒子中，允许有空盒" class="headerlink" title="5. 将$n$个有区别的球放入$m$个无区别的盒子中，允许有空盒"></a>5. 将$n$个有区别的球放入$m$个无区别的盒子中，允许有空盒</h3><p>由于盒子是无区别的，可以直接枚举空盒的数量而不考虑具体是哪些盒子。<br>方案数$=S(n,m)+S(n,m-1)+\cdots + S(n,1)=\sum_{i=1}^{m}{S(n,i)}$。</p><h3 id="6-将-n-个有区别的球放入-m-个有区别的盒子中，不允许空盒"><a href="#6-将-n-个有区别的球放入-m-个有区别的盒子中，不允许空盒" class="headerlink" title="6. 将$n$个有区别的球放入$m$个有区别的盒子中，不允许空盒"></a>6. 将$n$个有区别的球放入$m$个有区别的盒子中，不允许空盒</h3><p>考虑问题4中的任意一种方案，将$m$个盒子分别标号$1$到$m$，将任意两个盒子中的球做整体的对换，就产生了本问题的一种新方案。不断地进行两两对换，不重复的方案显然组成了全排列。<br>方案数$=S(n,m) \times m!$。</p><h3 id="7-将-n-个无区别的球放入-m-个无区别的盒子中，允许有空盒"><a href="#7-将-n-个无区别的球放入-m-个无区别的盒子中，允许有空盒" class="headerlink" title="7. 将$n$个无区别的球放入$m$个无区别的盒子中，允许有空盒"></a>7. 将$n$个无区别的球放入$m$个无区别的盒子中，允许有空盒</h3><p>等价于整数拆分问题，即，将整数$n$无序拆分为不超过$m$个正整数的方案数。由Ferrers图像的对称性，该方案数等于将整数$n$无序拆分为最大数不超过$m$的方案数。<br>显然有母函数<br>$$G(x)=(1+x+x^{2}+ \cdots )(1+x^{2}+x^{4}+ \cdots ) \cdots (1+x^{m}+x^{2m}+ \cdots )=\frac{1}{(1-x)(1-x^{2}) \cdots (1-x^{m})}$$<br>方案数为，$G(x)$中$x^{n}$的系数。</p><h3 id="8-将-n-个无区别的球放入-m-个无区别的盒子中，不允许空盒"><a href="#8-将-n-个无区别的球放入-m-个无区别的盒子中，不允许空盒" class="headerlink" title="8. 将$n$个无区别的球放入$m$个无区别的盒子中，不允许空盒"></a>8. 将$n$个无区别的球放入$m$个无区别的盒子中，不允许空盒</h3><p>等价于整数拆分问题，即，将整数$n$无序拆分为$m$个正整数的方案数。由Ferrers图像的对称性，该方案数等于将整数$n$无序拆分为最大数等于$m$的方案数。<br>显然有母函数<br>$$G(x)=(1+x+x^{2}+ \cdots )(1+x^{2}+x^{4}+ \cdots ) \cdots (x^{m}+x^{2m}+ \cdots )=\frac{x^{m}}{(1-x)(1-x^{2}) \cdots (1-x^{m})}$$<br>方案数为，$G(x)$中$x^{n}$的系数。</p><p><strong>ps. 其实问题678的想法感觉不是很自然，不知道有没有其他更好的推理方法。</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这两天复习组合数学，仔细品了品八种放球问题，感觉还是挺有意思的。&lt;br&gt;放球问题的基本表述是：将$n$个球放入$m$个盒子中（每个球都必须放到某个盒子里），有多少种方案？&lt;br&gt;由于有$3$个方面的条件，所以总共有$2^3=8$种，按熟悉程度分别介绍吧。&lt;/p&gt;
+&lt;h3 i
+      
+    
+    </summary>
+    
+    
+    
+      <category term="组合数学" scheme="https://www.smlight.top/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>CSP合集</title>
@@ -70,7 +95,7 @@
     <link href="https://www.smlight.top/2019/12/05/piece2/"/>
     <id>https://www.smlight.top/2019/12/05/piece2/</id>
     <published>2019-12-05T11:38:00.000Z</published>
-    <updated>2019-12-17T02:56:11.291Z</updated>
+    <updated>2019-12-28T08:44:00.875Z</updated>
     
     <content type="html"><![CDATA[<p>各个课的作业都做得太久了，<br>但是又无法接受明明还有时间却不把一件事情搞好。</p><p>组合数学的小论文用 $\LaTeX$ 写的，写了好久，<br>但是竟然没找到一个正常的中文期刊模板，只好自己随便搞了。</p><p>姑且算是跟博客的内容有点关系，<br>还是放上来吧，<a href="/heap-time-complexity.pdf">关于堆数据结构相关操作时间复杂度的分析</a>。</p>]]></content>
     
@@ -88,6 +113,8 @@
     
     
       <category term="Life" scheme="https://www.smlight.top/tags/Life/"/>
+    
+      <category term="组合数学" scheme="https://www.smlight.top/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -482,31 +509,6 @@
       
       
         &lt;h3 id=&quot;题意&quot;&gt;&lt;a href=&quot;#题意&quot; class=&quot;headerlink&quot; title=&quot;题意&quot;&gt;&lt;/a&gt;题意&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://hihocoder.com/problemset/problem/1553&quot; target=&quot;_blank&quot;
-      
-    
-    </summary>
-    
-    
-    
-      <category term="ACM" scheme="https://www.smlight.top/tags/ACM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hdu 6129 Just do it</title>
-    <link href="https://www.smlight.top/2017/08/17/hdu6129/"/>
-    <id>https://www.smlight.top/2017/08/17/hdu6129/</id>
-    <published>2017-08-17T00:41:10.000Z</published>
-    <updated>2018-02-12T03:08:14.682Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有一个长度为 $n$ 的整数序列 ${a_n}$，对其做 $m$ 次前缀异或和，求最终的序列。</p><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>对这个过程手动模拟几行，注意不要消去，可以发现第 $m$ 次第 $i$ 个数的结果包含了 $C_{m-1+i-j}^{i-j}$ 次第 $j$ 个数($j\le i$) 。</p><p>首先我们需要判断它的奇偶性。奇偶性相当于2进制的结果，2为质数，可以使用Lucas定理。2进制的每一位只有四种情况，其中 $C_{0}^{1}=0，C_{0}^{0}=C_{1}^{0}=C_{1}^{1}=1$ 。</p><p>将 $m-1$ 和 $i-j$ 的每一位展开，在第 $k$ 位上，如果 $m-1$ 和 $i-j$ 都是 1，那么结果就是 0 。</p><p>从小到大枚举 $k$ ，表示 $i-j$ 的第 $k$ 位为 1，若 $m-1$ 的第 $k$ 位不为 1，那么直接更新<strong>a序列本身</strong>。也就是说，每次只用满足 $i-j=2^{k}$ 的 $a[j]$ 更新 $a[i]$，然而此时的 $a[j]$ 已经被 $k$ 取 $0\dots k-1$ 更新过了，所以相当于考虑了 $i-j$ 在 $0\dots k$ 位的所有情况。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">2e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T,n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,a+i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> k=<span class="number">1</span>;m--;</span><br><span class="line">        <span class="keyword">while</span> (k&lt;n) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((m&amp;<span class="number">1</span>)==<span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i=n;i&gt;k;i--) &#123;</span><br><span class="line">                    a[i]^=a[i-k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            m&gt;&gt;=<span class="number">1</span>;k&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d%c"</span>,a[i],<span class="string">" \n"</span>[i==n]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;题意&quot;&gt;&lt;a href=&quot;#题意&quot; class=&quot;headerlink&quot; title=&quot;题意&quot;&gt;&lt;/a&gt;题意&lt;/h3&gt;&lt;p&gt;有一个长度为 $n$ 的整数序列 ${a_n}$，对其做 $m$ 次前缀异或和，求最终的序列。&lt;/p&gt;
-&lt;h3 id=&quot;题解&quot;&gt;&lt;a hre
       
     
     </summary>

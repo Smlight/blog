@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>八种放球问题</title>
+      <link href="/2019/12/28/ball-box-problem/"/>
+      <url>/2019/12/28/ball-box-problem/</url>
+      
+        <content type="html"><![CDATA[<p>这两天复习组合数学，仔细品了品八种放球问题，感觉还是挺有意思的。<br>放球问题的基本表述是：将$n$个球放入$m$个盒子中（每个球都必须放到某个盒子里），有多少种方案？<br>由于有$3$个方面的条件，所以总共有$2^3=8$种，按熟悉程度分别介绍吧。</p><h3 id="1-将-n-个无区别的球放入-m-个有区别的盒子中，不允许空盒"><a href="#1-将-n-个无区别的球放入-m-个有区别的盒子中，不允许空盒" class="headerlink" title="1. 将$n$个无区别的球放入$m$个有区别的盒子中，不允许空盒"></a>1. 将$n$个无区别的球放入$m$个有区别的盒子中，不允许空盒</h3><p>使用经典的插空法，把$m-1$个板插入$n-1$个空中，自然划分出$m$个区，对应$m$个有区别的盒子，如图所示。<br><img src="/images/pasted-5.png" alt="插空法示意图"><br>方案数$=C_{n-1}^{m-1}$。<br>该问题等价于求$\sum_{i=1}^{m}{x_{i}}=n$的正整数解的个数。</p><h3 id="2-将-n-个无区别的球放入-m-个有区别的盒子中，允许有空盒"><a href="#2-将-n-个无区别的球放入-m-个有区别的盒子中，允许有空盒" class="headerlink" title="2. 将$n$个无区别的球放入$m$个有区别的盒子中，允许有空盒"></a>2. 将$n$个无区别的球放入$m$个有区别的盒子中，允许有空盒</h3><p>使用经典的隔板法，把$m-1$个板与$n$个球放在一起。“允许有空盒”意味着板和板可以紧邻地放在一起，这时候就要换一种思维方式，也就是从位置的角度来考虑，在$n+m-1$个位置中选$m-1$个放隔板，剩下的$n$个放球。<br><img src="/images/pasted-6.png" alt="隔板法示意图"><br>方案数$=C_{n+m-1}^{m-1}$。<br>该问题等价于求$\sum_{i=1}^{m}{x_{i}}=n$的非负整数解的个数，通过换元法可以转化为问题1。</p><h3 id="3-将-n-个有区别的球放入-m-个有区别的盒子中，允许有空盒"><a href="#3-将-n-个有区别的球放入-m-个有区别的盒子中，允许有空盒" class="headerlink" title="3. 将$n$个有区别的球放入$m$个有区别的盒子中，允许有空盒"></a>3. 将$n$个有区别的球放入$m$个有区别的盒子中，允许有空盒</h3><p>第1个球有$m$种选择，第2个球也有$m$种选择，第3个……。<br>方案数$=m \times m \times \cdots \times m = m^{n}$。</p><h3 id="4-将-n-个有区别的球放入-m-个无区别的盒子中，不允许空盒"><a href="#4-将-n-个有区别的球放入-m-个无区别的盒子中，不允许空盒" class="headerlink" title="4. 将$n$个有区别的球放入$m$个无区别的盒子中，不允许空盒"></a>4. 将$n$个有区别的球放入$m$个无区别的盒子中，不允许空盒</h3><p>这是第二类斯特林数的定义。<br>方案数$=S(n,m)$，递推式为$S(n,m)= S(n-1,m-1) + S(n-1,m) \times m$，包含了两种情况，</p><ol><li>第$n$个球单独放一个盒子，也就是之前的$n-1$个球放入了$m-1$个盒子；</li><li>第$n$个球放入已经存在的盒子，由于不能有空盒，此时$m$个盒子内部的情况肯定是不一样的，所以可以直接乘以$m$。</li></ol><h3 id="5-将-n-个有区别的球放入-m-个无区别的盒子中，允许有空盒"><a href="#5-将-n-个有区别的球放入-m-个无区别的盒子中，允许有空盒" class="headerlink" title="5. 将$n$个有区别的球放入$m$个无区别的盒子中，允许有空盒"></a>5. 将$n$个有区别的球放入$m$个无区别的盒子中，允许有空盒</h3><p>由于盒子是无区别的，可以直接枚举空盒的数量而不考虑具体是哪些盒子。<br>方案数$=S(n,m)+S(n,m-1)+\cdots + S(n,1)=\sum_{i=1}^{m}{S(n,i)}$。</p><h3 id="6-将-n-个有区别的球放入-m-个有区别的盒子中，不允许空盒"><a href="#6-将-n-个有区别的球放入-m-个有区别的盒子中，不允许空盒" class="headerlink" title="6. 将$n$个有区别的球放入$m$个有区别的盒子中，不允许空盒"></a>6. 将$n$个有区别的球放入$m$个有区别的盒子中，不允许空盒</h3><p>考虑问题4中的任意一种方案，将$m$个盒子分别标号$1$到$m$，将任意两个盒子中的球做整体的对换，就产生了本问题的一种新方案。不断地进行两两对换，不重复的方案显然组成了全排列。<br>方案数$=S(n,m) \times m!$。</p><h3 id="7-将-n-个无区别的球放入-m-个无区别的盒子中，允许有空盒"><a href="#7-将-n-个无区别的球放入-m-个无区别的盒子中，允许有空盒" class="headerlink" title="7. 将$n$个无区别的球放入$m$个无区别的盒子中，允许有空盒"></a>7. 将$n$个无区别的球放入$m$个无区别的盒子中，允许有空盒</h3><p>等价于整数拆分问题，即，将整数$n$无序拆分为不超过$m$个正整数的方案数。由Ferrers图像的对称性，该方案数等于将整数$n$无序拆分为最大数不超过$m$的方案数。<br>显然有母函数<br>$$G(x)=(1+x+x^{2}+ \cdots )(1+x^{2}+x^{4}+ \cdots ) \cdots (1+x^{m}+x^{2m}+ \cdots )=\frac{1}{(1-x)(1-x^{2}) \cdots (1-x^{m})}$$<br>方案数为，$G(x)$中$x^{n}$的系数。</p><h3 id="8-将-n-个无区别的球放入-m-个无区别的盒子中，不允许空盒"><a href="#8-将-n-个无区别的球放入-m-个无区别的盒子中，不允许空盒" class="headerlink" title="8. 将$n$个无区别的球放入$m$个无区别的盒子中，不允许空盒"></a>8. 将$n$个无区别的球放入$m$个无区别的盒子中，不允许空盒</h3><p>等价于整数拆分问题，即，将整数$n$无序拆分为$m$个正整数的方案数。由Ferrers图像的对称性，该方案数等于将整数$n$无序拆分为最大数等于$m$的方案数。<br>显然有母函数<br>$$G(x)=(1+x+x^{2}+ \cdots )(1+x^{2}+x^{4}+ \cdots ) \cdots (x^{m}+x^{2m}+ \cdots )=\frac{x^{m}}{(1-x)(1-x^{2}) \cdots (1-x^{m})}$$<br>方案数为，$G(x)$中$x^{n}$的系数。</p><p><strong>ps. 其实问题678的想法感觉不是很自然，不知道有没有其他更好的推理方法。</strong></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 组合数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CSP合集</title>
       <link href="/2019/12/28/collection-of-csp/"/>
       <url>/2019/12/28/collection-of-csp/</url>
@@ -53,6 +72,8 @@
         <tags>
             
             <tag> Life </tag>
+            
+            <tag> 组合数学 </tag>
             
         </tags>
       
@@ -1084,6 +1105,25 @@
     
     
     <entry>
+      <title>PPC-字符统计</title>
+      <link href="/2016/08/18/ppc-char-accounting/"/>
+      <url>/2016/08/18/ppc-char-accounting/</url>
+      
+        <content type="html"><![CDATA[<h3 id="字符统计"><a href="#字符统计" class="headerlink" title="字符统计"></a><a href="http://ctf.idf.cn/index.php?g=game&m=article&a=index&id=37" target="_blank" rel="noopener">字符统计</a></h3><p>题意也没什么好说的，主要是找了找 python 好用的 http 请求库，发现 requests 真的是很好用啊。。。还有就是一定要<strong>看清楚表单</strong>。。。</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line">    </span><br><span class="line">cookie = &#123;<span class="string">'Cookie'</span> : <span class="string">'wctf_think_language=zh-CN;PHPSESSID=ltbxxxxxxxxxxxxxxxxxxxxfl6'</span>&#125;</span><br><span class="line">r = requests.<span class="keyword">get</span>("http://ctf.idf.cn/game/pro/37/", cookies = cookie)</span><br><span class="line">    </span><br><span class="line"><span class="type">text</span> = re.<span class="keyword">search</span>(r<span class="string">'&lt;hr /&gt;\s(.*)\s&lt;hr /&gt;'</span>, r.text, re.S).<span class="keyword">group</span>(<span class="number">1</span>)</span><br><span class="line">res = ""</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'w'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'o'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'l'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'d'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'y'</span>))</span><br><span class="line">print(res)</span><br><span class="line">    </span><br><span class="line">payload = &#123;<span class="string">'anwser'</span>:res&#125;</span><br><span class="line">r = requests.post("http://ctf.idf.cn/game/pro/37/", cookies = cookie, data = payload)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Crypto-特殊的日子</title>
       <link href="/2016/08/18/crypto-special-day/"/>
       <url>/2016/08/18/crypto-special-day/</url>
@@ -1097,25 +1137,6 @@
             <tag> CTF </tag>
             
             <tag> Crypto </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>PPC-字符统计</title>
-      <link href="/2016/08/18/ppc-char-accounting/"/>
-      <url>/2016/08/18/ppc-char-accounting/</url>
-      
-        <content type="html"><![CDATA[<h3 id="字符统计"><a href="#字符统计" class="headerlink" title="字符统计"></a><a href="http://ctf.idf.cn/index.php?g=game&m=article&a=index&id=37" target="_blank" rel="noopener">字符统计</a></h3><p>题意也没什么好说的，主要是找了找 python 好用的 http 请求库，发现 requests 真的是很好用啊。。。还有就是一定要<strong>看清楚表单</strong>。。。</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line">    </span><br><span class="line">cookie = &#123;<span class="string">'Cookie'</span> : <span class="string">'wctf_think_language=zh-CN;PHPSESSID=ltbxxxxxxxxxxxxxxxxxxxxfl6'</span>&#125;</span><br><span class="line">r = requests.<span class="keyword">get</span>("http://ctf.idf.cn/game/pro/37/", cookies = cookie)</span><br><span class="line">    </span><br><span class="line"><span class="type">text</span> = re.<span class="keyword">search</span>(r<span class="string">'&lt;hr /&gt;\s(.*)\s&lt;hr /&gt;'</span>, r.text, re.S).<span class="keyword">group</span>(<span class="number">1</span>)</span><br><span class="line">res = ""</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'w'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'o'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'l'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'d'</span>))</span><br><span class="line">res += str(<span class="type">text</span>.count(<span class="string">'y'</span>))</span><br><span class="line">print(res)</span><br><span class="line">    </span><br><span class="line">payload = &#123;<span class="string">'anwser'</span>:res&#125;</span><br><span class="line">r = requests.post("http://ctf.idf.cn/game/pro/37/", cookies = cookie, data = payload)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> CTF </tag>
             
         </tags>
       
